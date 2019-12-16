@@ -1,0 +1,9 @@
+chebfun-master**
+savedResults/**
+
+*.mexa64
+*.mexw64
+*.mexmaci64
+*.asv
+*.m~
+*.DS_Store
