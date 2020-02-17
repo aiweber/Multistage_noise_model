@@ -1,6 +1,7 @@
 # Multistage_noise_model
 
-This repository contains Matlab code to fit a multiply stochastic model to neural data.
+Associated with ([Weber, Shea-Brown, & Rieke
+2020](****bioRxiv link******)), this repository contains Matlab code to fit a multiply stochastic model to neural data.
 
 To get started, open `demo_fit_multistage_noise_model.m`.
 
