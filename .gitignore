@@ -1,6 +1,5 @@
 chebfun-master**
 savedResults/**
-!savedResults/.gitkeep 
 
 *.mexa64
 *.mexw64
