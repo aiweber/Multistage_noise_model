@@ -1,5 +1,21 @@
 function [xsol, fval, exitflag, output, history, options] = run_fit_fminsearchbnd(f,init,prLB,prUB,optionsStruct)
 % [xsol, fval, exitflag, output, history, options] = run_fit_fminsearchbnd(f,init,prLB,prUB,optionsStruct)
+%
+% Wrapper for fminsearchbnd
+%
+% Inputs
+%   f: function to optimize
+%   init: initial conditions
+%   prLB: lower bounds on parameters
+%   prUB: upper bounds on parameters
+%   optionsStruct: structure of options for optimization (fields tolFun,
+%                  tolX, maxIter, maxFunEvals)
+%
+% Outputs
+%   xsol, fval, exitflag, output: see fminsearch documentation
+%   history: full history of parameters searched
+%   option: structure of options used for optimization
+%   
 
 history.x = [];
 history.fval = [];

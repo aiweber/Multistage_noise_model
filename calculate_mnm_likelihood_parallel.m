@@ -1,5 +1,19 @@
 function [loglike,loglikes] = calculate_mnm_likelihood_parallel(prs,gSub,rSub,fname)
 % [loglike,loglikes] = calculate_mnm_likelihood_parallel(prs,gSub,rSub,fname)
+% 
+% Calculates log-likelihood of data given model parameters, using parallel
+% computing
+%
+% Inputs: 
+%   prs: parameters
+%   gSub: input data (referred to as 'xdata' elsewhere)
+%   rSub: response data (referred to as 'ydata' elsewhere)
+%   fname: filename for saving results
+%
+% Outputs:
+%   loglike: log-likelihood of data given parameters
+%   loglikes: vector of log-likelihoods of all data points individually
+%
 
 disp(num2str(prs))
 upNoise = prs(1);   % std of upstream noise

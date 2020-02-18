@@ -2,7 +2,7 @@
 function likes = mult_likelihood_wrapper(g,upNoise,multNoise,ys,nlPrs,lL,lU,yU,lCut,flag)
 % likes = mult_likelihood_wrapper(g,upNoise,multNoise,ys,nlPrs,lL,lU,yU,lCut,flag)
 %
-% wrapper for mult_likelihood that enables it to operate on vector inputs
+% Wrapper for mult_likelihood that enables it to operate on vector inputs
 
 likes = zeros(size(ys));
 for yValIdx = 1:length(ys)

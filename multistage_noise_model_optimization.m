@@ -1,5 +1,41 @@
 function [prsSol, lsqSol, xdata, ydata] = multistage_noise_model_optimization(dataFilename,its,runParallel,maxIter,descr,init)
 % [prsSol, lsqSol, xdata, ydata] = multistage_noise_model_optimization(dataFilename,its,runParallel,maxIter,descr,init)
+%
+% Main function that fits multistage noise model (Weber, Shea-Brown, &
+% Rieke 2020) to data
+%
+% Inputs
+%   dataFilename: filename of data to load for fitting; must contain
+%                 variables 'xdata' and 'ydata', vectors of equal length
+%                 that contain the inputs and responses, respectively
+%   its: iterations to run (e.g., [1 3 4] will run 3 different iterations
+%        using those numbers as labels)
+%   runParallel: 0 (non-parallel) or 1 (parallel, requires Parallel
+%                Computing Toolbox); default: 0
+%   maxIter: maximum number of iterations for optimization; default: 5000
+%   descr: string to record description of dataset or these iterations
+%   init: optional vector of initial conditions for optimization; default:
+%         random initial conditions on each iteration   
+%
+% Outputs
+%   prsSol: solution of optimization. Entries are:
+%               upstream noise
+%               multiplicative noise
+%               downstream noise strength
+%               nonlinearity param 1: vertical stretch
+%               nonlinearity param 2: horizontal stretch
+%               nonlinearity param 3: horizontal offset
+%               nonlinearity param 4: vertical offset
+%               downstream noise probability
+%            Note that upstream noise is in the same units as xdata (not
+%            z-scored), and nonlinearity params are in
+%            "reparameterized" units (i.e., to be plotted with
+%            nl_sr_reparam function).
+%   lsqSol: least squares fit of nonlinearity to data. Nonlinearity
+%           parameters are in original (not reparameterized) units (i.e.,
+%           to be plotted with nl_sr function).
+%   xdata: input data used for fitting
+%   ydata: response data used for fitting
 
 if ~exist('runParallel','var') || isempty(runParallel) 
     runParallel = 0;
